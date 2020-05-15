@@ -12,6 +12,7 @@ import open_close.good.Greeter;
 import open_close.good.Personality;
 import single_responsibility.bad.Book;
 import interface_segregation.bad.*;
+import single_responsibility.good.BookReader;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -26,13 +27,9 @@ public class Main {
 
         //==Single Responsibility Example
         System.out.println("\nSingle Responsibility Principle Violation");
-        Book book1 = new Book("Head First Java", "Bert Bates", 300);
-        Book book2 = new Book("Java Phylosophy", "Ekkel", 280);
-        book1.read(150);
-        book1.read(149);
-        book1.read(2);
-        book1.printBookInformation();
-        book2.printBookInformation();
+
+
+
 
         //==Liskov Substituion example
         System.out.println("\nLiskov Substituion Principle Violation");

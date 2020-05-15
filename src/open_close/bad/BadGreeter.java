@@ -15,6 +15,9 @@ public class BadGreeter {
         else if (formality == "intimate"){
             return "Hello Darling!";
         }
+        else if (formality == "bestfriend"){
+            return "Salem!";
+        }
         else{
             return "hello.";
         }

@@ -1,17 +1,15 @@
 package single_responsibility.bad;
 import java.util.*;
 public class Book {
-    String name;
-    String authorName;
-    int totalPageCount;
-    int curPageCount;
-    boolean toRead;
+    private String name;
+    private String authorName;
+    private int totalPageCount;
+    int currentPageCount = 0;
     public Book(){}
     public Book(String name, String authorName, int numOfPages){
         this.name = name;
         this.authorName = authorName;
         this.totalPageCount = numOfPages;
-        this.curPageCount = 1;
     }
 
     public String getName() {
@@ -38,10 +36,16 @@ public class Book {
         this.totalPageCount = totalPageCount;
     }
 
-    public void printBookInformation(){
-        System.out.println(this.name + " " + this.authorName + ", and you read "+ this.curPageCount +" of "+  this.totalPageCount);
-    }
     public void read(int page){
-        this.curPageCount = (this.curPageCount + page <= this.totalPageCount) ? this.curPageCount + page : this.totalPageCount;
+        this.currentPageCount = (this.currentPageCount + page <= this.totalPageCount)
+                ? this.currentPageCount + page : this.totalPageCount;
+    }
+    public void read(){
+        this.currentPageCount = (this.currentPageCount + 1 <= this.totalPageCount)
+                ? this.currentPageCount + 1 : this.totalPageCount;
+    }
+    public void printBookInformation(){
+        System.out.println(this.name + " of " + this.authorName + " and read "
+                + this.currentPageCount + " out of " + this.totalPageCount );
     }
 }

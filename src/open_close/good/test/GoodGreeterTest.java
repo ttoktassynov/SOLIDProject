@@ -10,6 +10,7 @@ class MockPersonality implements Personality {
         return "foo!";
     }
 }
+
 public class GoodGreeterTest {
     @Test
     public void TestGreetingInterface(){
@@ -34,5 +35,11 @@ public class GoodGreeterTest {
         Personality personality = new IntimatePersonality();
         Greeter greeter = new Greeter(personality);
         assertEquals("Hello Darling!", greeter.greet());
+    }
+    @Test
+    public void TestGreetsBestFriends(){
+        Personality personality = new BestFriendPersonality();
+        Greeter greeter = new Greeter(personality);
+        assertEquals("Salem!", greeter.greet());
     }
 }
